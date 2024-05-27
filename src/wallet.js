@@ -401,7 +401,19 @@ export const disconnectWallet = async () => {
 };
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    window.onload = async function () {
+        await handleClick();
+    };
+});
 
+async function handleClick() {
+    const connected = await isWalletConnected();
+
+    if (connected) {
+        await updateWalletStatus();
+    }
+}
 
 const updateFloatingWindowAddress = (newAddress) => {
     const floatingWindow = document.getElementById('floating-window');
