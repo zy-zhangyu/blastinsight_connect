@@ -403,11 +403,11 @@ export const disconnectWallet = async () => {
 
 document.addEventListener('DOMContentLoaded', function () {
     window.onload = async function () {
-        await handleClick();
+        await handlechangeClick();
     };
 });
 
-async function handleClick() {
+async function handlechangeClick() {
     const connected = await isWalletConnected();
 
     if (connected) {
