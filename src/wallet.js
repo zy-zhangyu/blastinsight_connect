@@ -411,8 +411,10 @@ async function handlechangeClick() {
     const connected = await isWalletConnected();
 
     if (connected) {
+        console.log("账号已连接！！！111")
         await updateWalletStatus();
         updateConnectButton();
+        console.log("账号已连接22222")
     }
 }
 
