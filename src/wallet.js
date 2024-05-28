@@ -403,10 +403,11 @@ export const disconnectWallet = async () => {
 
 document.addEventListener('DOMContentLoaded', async function () {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const button = getConnectButton();
     if (accounts) {
         // 若已连接，修改按钮文本为账户地址前6位加省略号再加最后6位
         const truncatedAddress = String(accounts[0]).substring(0, 6) + "..." + String(accounts[0]).substring(38);
-        document.getElementById('connect-button').textContent = truncatedAddress;
+        button.textContent = truncatedAddress;
     }
 
 });
