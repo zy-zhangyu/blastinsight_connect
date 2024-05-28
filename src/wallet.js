@@ -408,6 +408,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 async function handlechangeClick() {
+    console.log("handlechangeclick开始执行")
     const connected = await isWalletConnected();
 
     if (connected) {
