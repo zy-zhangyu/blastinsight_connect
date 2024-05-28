@@ -404,6 +404,7 @@ export const disconnectWallet = async () => {
 document.addEventListener('DOMContentLoaded', async function () {
     console.log("页面初始化加载。。。")
     await handlechangeClick();
+    console.log("handlechangclick执行完毕444")
 
 });
 
