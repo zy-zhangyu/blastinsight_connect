@@ -402,22 +402,15 @@ export const disconnectWallet = async () => {
 
 
 document.addEventListener('DOMContentLoaded', async function () {
-    console.log("页面初始化加载。。。")
-    await handlechangeClick();
-    console.log("handlechangclick执行完毕444")
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    if (accounts) {
+        // 若已连接，修改按钮文本为账户地址前6位加省略号再加最后6位
+        const truncatedAddress = String(accounts[0]).substring(0, 6) + "..." + String(accounts[0]).substring(38);
+        document.getElementById('connect-button').textContent = truncatedAddress;
+    }
 
 });
 
-async function handlechangeClick() {
-    console.log("handlechangeclick开始执行")
-    const connected = await isWalletConnected();
-
-    if (connected) {
-        console.log("账号已连接！！！111")
-        await updateWalletStatus();
-        console.log("账号已连接22222")
-    }
-}
 
 const updateFloatingWindowAddress = (newAddress) => {
     const floatingWindow = document.getElementById('floating-window');
