@@ -401,10 +401,10 @@ export const disconnectWallet = async () => {
 };
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    window.onload = async function () {
-        await handlechangeClick();
-    };
+document.addEventListener('DOMContentLoaded', async function () {
+    console.log("页面初始化加载。。。")
+    await handlechangeClick();
+
 });
 
 async function handlechangeClick() {
@@ -413,7 +413,6 @@ async function handlechangeClick() {
     if (connected) {
         console.log("账号已连接！！！111")
         await updateWalletStatus();
-        updateConnectButton();
         console.log("账号已连接22222")
     }
 }
